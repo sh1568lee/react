@@ -1,0 +1,1071 @@
+@charset "UTF-8";
+
+/* 기본색 변수로 지정 */
+:root {
+    --main-color: #5D9AB2;
+    --accent-color: #BF6A7A;
+    --dark-color: #2B5566;
+    --text-bright-color: #fff;
+    --icon-color: #fff;
+    --icon-bk-color: #ddd;
+    --large-width: 1000px;
+}
+
+/* 기본 설정: 페이지 전체 */
+body {
+    /* 의도하지 않은 여백을 제거하려고  */
+    margin: 0;
+    font-family: '맑은 고딕',
+        'Apple SD Gothic Neo',
+        sans-serif;
+}
+/* 브라우저는 여러 개의 폰트중에서 사용할 수 있는 폰트를 사용, 앞쪽에 우선권 */
+
+/* 콘텐츠A: 히어로 이미지 */
+.conA {
+    display: flex;
+    align-items: center; /* 위 아래  */
+    justify-content: center;
+    /* vh는 화면의 높이를 100 vh로 처리하는 단위 */
+    height: 100vh;
+    /* 최소높이 확보 */
+    min-height: 450px;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1)
+    ), url(img/fruits.jpg);
+    /* 확대/축소 등을 처리하는 중심점 */
+    background-position: center;
+    background-size: cover;
+    /* color:#fff; */
+    color: var(--text-bright-color);
+    /* 반투명 이미지로 만든다 */
+    text-align: center;
+}
+
+.conA h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 15vw; /* vw는 화면의 너비를 100vw로 하는 단위 */
+    font-family: 'Montserrat', sans-serif;
+    
+    /* em은 폰트크기 1em으로 처리하는 단위다. */
+    letter-spacing: 0.2em; /* 자간, 각 글자의 오른쪽 부분에 여백을 넣는다 */
+    /* 중앙정렬이 깨지기 때문에 맨 왼쪽에도 여백을 넣어줘야한다. */
+    margin-left: 0.2em;
+}
+
+.conA p {
+    margin-top: 0;
+    margin-bottom:0;
+    font-size: 18px;
+}
+
+.conA img {
+    /* 높이는 따로지정하지 않아도 가로 세로 비율을 기반으로 자동으로 조절된다 */
+    width: 20%;
+}
+
+.conA a { 
+    /* 인라인 박스는 내용의 크기에 맞게 크기가 결정된다. */
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 30px;
+
+    border: solid 3px currentColor; /* 글자와 같은 생각 */
+    border-radius: 6px;
+    /* background-color: #BF6A7A; */
+    background-color: var(--accent-color);
+
+    color: #fff;
+    color: var(--text-bright-color);
+
+    font-size: 14px; 
+    text-decoration: none; /* 링크의 밑줄을 없애준다 */
+}
+
+.conA a:hover {
+    /* 반투명 이미지를 올린다 */
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.2)
+    );
+}
+
+/* 768px 이상 */
+@media (min-width: 768px) {
+    .conA h1 {
+        font-size: 115px;
+    }
+
+    .conA p {
+        font-size: 24px;
+    }
+}
+/* 디자인 설정을 변경하는 지점은 반응형 웹디자인에서 브레이크포인트라고 부른다. */
+
+/* 콘텐츠B 개요(아이콘+글자) */
+.conB .container {
+    padding-top: 80px;
+    padding-bottom: 20px;
+}
+
+/* 콘텐츠B: 개요(아이콘 + 글자) */
+.conB .text{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+/* 콘텐츠B: 개요(아이콘 + 글자)  */
+.conB h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;    
+}
+
+.conB p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 14px;
+    /* 줄 높이를 1.8배 */
+    line-height: 1.8;
+    opacity: 0.8;
+}
+
+.conB a {
+    color: #5D9AB2;
+    color: var(--main-color);
+    /* 링크 줄없애기 위해 */
+    text-decoration: none; 
+}
+.conB a:hover {
+    /* 포커스시 밑줄  */
+    text-decoration: underline;
+}
+.conB .icon {
+    /* 지정한 margin이 적용되도록 inline-block */
+    display: inline-block;
+    margin-bottom: 20px;
+    /* 아이콘 크기를 이것으로 */
+    font-size: 40px;
+    /* font-size를 1em으로 */
+    width: 2em;
+    line-height: 2em;
+    /* height: 2em; */
+    /* 완전한 원 */
+    border-radius: 50%;
+    text-align: center;
+
+    background-color: var(--icon-bk-color);
+    color: var(--icon-color);
+}
+/* 768px 이상이라면 */
+@media (min-width: 768px) {
+    .conB .container {
+        display: flex;
+        max-width: var(--large-width);
+        /* container를 화면 중앙에 배치키 위해 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .conB .text {
+        /* 비율을 1:1:1로 해준다 */
+        flex: 1;
+    }
+}
+
+/* 콘텐츠C: 개요(이미지+글자) */
+.conC {
+    background-color: var(--main-color);
+    color: var(--text-bright-color);
+}
+
+/* 콘텐츠C: 개요(이미지+글자) */
+.conC h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.conC .photo {
+    /* photo div는 내용물이 없으므로 기본 height: 0 */
+    /* 200px를 확보하자 */
+    min-height: 200px;
+    background-image: url(img/note.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.conC .text {
+    padding: 20px;
+}
+
+.conC p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 14px;
+    /* 줄 높이를 폰트의 1.8배 */
+    line-height: 1.8;
+    opacity: 0.8;
+}
+
+.conC a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: solid 3px currentColor;
+    border-radius: 6px;
+    background-color: var(--accent-color);
+    color: var(--text-bright-color);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.conC a:hover {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.2)
+    );
+}
+
+@media (min-width: 768px) {
+    .conC .container {
+        display: flex;
+        max-width: var(--large-width);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .conC .photo {
+        flex: 3;
+    }
+
+    .conC .text {
+        flex: 2;
+        padding: 50px;
+    }
+    
+}
+
+.conD {
+    /* background-color: #BF6A7A; */
+    /* background-color: var(--accent-color); */
+    /* background-image: url(img/life.jpg); */
+    /* background-position: center; */
+    /* background-size: cover; */
+}
+
+.conD .text {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.conD .h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.conD p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.8;
+    opacity: 0.8;
+}
+.conD a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 30px;
+    /* border는 여러개의 실선을 만들 수 없으므로 
+       box-shadow로 실선 외부에 1픽셀 두께의 회색 그림자 */
+    box-shadow: 0 0 0 1px #888;
+    border: solid 3px currentColor;
+    border-radius: 6px;
+    background-color: #BF6A7A;
+    background-color: var(--accent-color);
+    color: #fff;
+    color: var(--text-bright-color);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.conD a:hover {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.2)
+    );
+}
+
+.conD .photo {
+    min-height: 200px;
+    background-image: url(img/life.jpg);
+    /* background-image: none; */
+    background-position: center;
+    background-size: cover;
+}
+
+.conD .container {
+    padding-top: 2px;
+}
+
+@media (min-width: 768px)
+ {
+     .conD .container {
+         display: flex;
+         /* 순서 변경 */
+         flex-direction: row-reverse;
+         padding-top: 40px;
+         padding-bottom: 40px;
+         max-width: 1000px;
+         max-width: var(--large-width);
+         margin-left: auto;
+         margin-right: auto;
+     }
+     .conD .photo {
+         /* 이미지의 너비가 400픽셀로 고정된다. */
+         /* 첫 번쨰와 두 번째 값은 박스의 너비 변화와 관련된 값 */
+         flex: 0 0 400px;
+     }
+     .conD .text {
+         flex: 1;
+         padding: 50px;
+     }
+ }
+
+ footer {
+     color: #fff;
+     color: var(--text-bright-color);
+     background-color: #2b5566;
+     /* background-color: var(--dark-color) */
+ }
+
+ footer .container {
+     padding: 40px 20px;
+ }
+
+ @media (min-width: 768px) {
+     footer .container {
+         display: flex;
+         /* 가로로 정렬하고 싶은 너비의 합계가 100퍼센트를 넘길때 칼럼을 아래로 넘길려면 */
+         flex-wrap: wrap;
+         max-width: 1000px;
+         margin-left: auto;
+         margin-right: auto;
+     }
+ }
+
+ .footA {
+     margin-bottom: 30px;
+ }
+
+ .footA h2 {
+     margin-top: 0;
+     margin-bottom: 10px;
+     font-family: 'Montserrat', sans-serif;
+     font-size: 30px;
+     letter-spacing: 0.2em;
+ }
+
+ .footA p {
+     margin-top: 0;
+     margin-bottom: 0;
+     font-size: 14px;
+ }
+
+ .footA a {
+     /* 부모 글색을 상속받음 */
+     color: inherit;
+     text-decoration: none;
+ }
+
+.footB h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    /* 밑줄을 넣는다 */
+    border-bottom: solid 1px currentColor;
+    font-size: 14px;
+}
+.footB ul {
+    /* ul은 기본적으로 여백이 들어간다 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footB a {
+    /* block으로 지정해 블록 박스를 구성하게한다 이렇게 하면 <a>로 구성되는
+       박스의 너비가 글자에 맞춰지는 것이 아니라 부모요소 <Footer>에 맞춰진다.*/
+    display: block;
+    padding: 5px;
+    color: inherit;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footB a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.footB div {
+    margin-bottom: 20px;
+}
+
+.footC {
+    font-size: 12px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@media (min-width: 768px) {
+    .footA {
+        flex: 0 0 40%;
+    }
+    
+
+    .footB {
+        flex: 0 0 60%;
+        display: flex;
+    }
+
+    .footC {
+        flex: 0 0 100%;
+    }
+
+    .footB div {
+        flex: 1;
+    }
+    /* 선택자에 :first-child를 붙이면 첫 번째 자식 요소가 선택된다 */
+    /* :not()을 사용하면 괄호 내부에 지정한 조건과 일치하지 않는 요소가 선택된다 */
+    .footB div:not(:first-child) {
+        margin-left: 40px;
+    }
+}
+
+.footD ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footD  {
+    margin-top: 20px;
+}
+
+.footD a{
+    display: block;
+    padding: 0;
+    color: inherit;
+    font-size: 16px;
+    text-decoration: none;
+    border: solid 1px currentColor;
+    width: 2em;
+    line-height: 2em;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 8px;
+}
+
+.footD a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.headA {
+    /* 높이 지정을 출력에 반영하도록 display를 이리 설정함 */
+    display: inline-block;
+    line-height: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    background-color: var(--main-color);
+    background-color: #5d9ab2;
+    color: #fff;
+    color: var(--text-bright-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+header {
+    /* 웹 페이지의 요소들은 기본적으로 위에서 아래로 정렬되어 출력되므로 중첩되지 않는다
+    요소를 중첩하려면 position을 사용한다. 이러하면 헤더는 다른 레이어로 나뉘게 되어 포지션을 지정하지 않은 다른 요소 위에
+    중첩된다. */
+    position: absolute;
+    /* 포지션을 지정하지 않은 헤더 이외의 요소는 헤더를 존재하지 않는 것으로 인식 */
+    top: 0;
+    left: 0;
+    z-index: 100;
+    /* 헤더가 너비를 꽉 채울 수 있도록. */
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.headB ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.headB a {
+     /* block으로 지정해 블록 박스를 구성하게한다 이렇게 하면 <a>로 구성되는
+       박스의 너비가 글자에 맞춰지는 것이 아니라 부모요소 <Footer>에 맞춰진다.*/
+    display: block;
+    padding: 15px;
+    color: inherit;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.headB a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media(max-width: 767px) {
+    header .container-small {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .headC {
+        margin-right: 10px;
+        padding: 0;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 28px;
+        opacity: 0.5;
+        cursor: pointer;
+    }
+    .headC:hover {
+        opacity: 0.3;
+    }
+    .headB {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .headB ul {
+        display: flex;
+    }
+    header .container {
+        display:flex;
+        /* 위아래 가운데 정렬 */
+        align-items: center;
+        /* 양끝 정렬 */
+        justify-content: space-between;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .headC {
+        display: none;
+    }
+    /* !important는 우선적용 */
+    .headB {
+        display: block !important;
+    }
+}
+
+.nohero header {
+    position: static;
+    border-bottom: solid 1px #ddd;
+}
+
+
+
+@media (max-width: 599px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 799px) {
+    :root {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 800px) {
+    :root {
+        font-size: 18px;
+    }
+}
+/* 기본 폰트 설정은 폰트 크기를 따로 지정하지 않은 요소에
+영향을 줄 수 있다.  */
+
+body {font-size: 16px}
+
+.post .container {
+    padding: 30px 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post h1 {
+    /* 기본 폰트 크기에 2배 */
+    font-size: 2em;
+
+    padding-left: 0.5rem;
+    border-left: solid 0.75rem #BF6A7A;
+}
+.post p {
+    font-size: 1rem;
+    /* 줄 높이가 본문 폰트 크기의 2배 */
+    line-height: 2;
+}
+
+.post img {
+    max-width: 100%;
+}
+
+.bread ol {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.bread a {
+    display: block;
+    padding: 5px;
+    color: inherit;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.bread a::after {
+    margin-left: 10px;
+    content: '\f054';
+    font-family: 'FontAwesome';
+    opacity: 0.3;
+}
+.bread a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.history {
+    background-color: #5D9AB2;
+    color: #fff;
+}
+
+.history .text {
+    padding: 20px;
+}
+
+.history .h2 {
+    margin-top: 0;
+    margin-bottom: 50px;
+    font-size: 1.5rem;
+}
+
+.history .photo {
+    min-height: 300px;
+    background-image: url(img/plant.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+@media (min-width: 768px) {
+    .history .container {
+        display: flex;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .history .photo {
+        flex: 3;
+    }
+
+    .history .text {
+        flex: 2;
+        padding: 50px;
+    }
+}
+
+.history table {
+    /* 실선 사이에 의도하지 않은 여백이 들어가는 것을 막습니다. */
+    border-collapse: collapse;
+    border-top: solid 1px #ddd;
+    font-size: 0.875rem;
+}
+
+.history th,
+.history td {
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-bottom: solid 1px #ddd;
+}
+
+.history th {
+    padding-right: 1rem;
+    text-align: left;
+    /* 줄바꿈이 들어가지 않게  */
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.contact {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: solid 1px #ddd;
+    text-align: center;
+}
+
+.contact h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.contact a {
+    font-size: 1.4rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .contact-wrap {
+        display: flex;
+    }
+
+    .contact {
+        flex: 1;
+    }
+
+    .contact:first-child { 
+        margin-right: 20px;
+    }
+}
+
+.contact span {
+    display:inline-block;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    width: 2em;
+    line-height: 2em;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #5D9AB2;
+    color: #fff;
+}
+
+.location iframe {
+    width: 100%;
+    height: 400px;
+    /* 지도 아래에 있는 의도하지 않은 여백을 제거한다 */
+    vertical-align: bottom;
+}
+
+.location h2 {
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #5D9AB2;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.conA.compact {
+    height: 450px;
+    min-height: 0;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)
+    ), url(img/balloon.jpg);
+}
+
+.listA h2 {
+    font-size: 18px;
+}
+
+.listA p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.listA .photo {
+    /* background-image: url(img/p01.jpg); */
+    min-height: 150px;
+    background-position: center;
+    background-size: cover;
+}
+
+.listA a {
+    margin: 10px;
+    /* 테두리 내부 전체에서 링크가 가능하게 */
+    display: block;
+    border: solid 1px #ddd;
+    color: inherit;
+    text-decoration: none;
+    /* article 내부의 a 높이를 맞추려면 article의 displya를 flex a를 1로 지정한다 */
+    /* a의 자식요소가 1개밖에 없으므로 부모 요소 article의 너비와 높이를 꽉채워 출력한다 */
+    /* a의 height를 100%로 지정해도 높이를 맞출수 있다. */
+    flex: 1;
+}
+
+.listA .text {
+    margin: 10px;
+}
+
+.listA a:hover {
+    opacity: 0.8;
+}
+
+.listA .container {
+    display: flex;
+    /* 너비가 화면의 100% 이상 넘어가면 자동 줄넘김  */
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.listA article {
+    /* 300px의 너비를 기본으로 필요에 따라서 늘어난다 */
+    flex: 1 1 300px;
+    display: flex;
+}
+
+.listA h1 {
+    text-align: center;
+}
+
+.listB h1 {
+    text-align: center;
+
+}
+
+.listB .container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.listB article {
+    flex: 1 1 384px;
+    display: flex;
+}
+
+.listB a {
+    flex: 1;
+    margin: 10px;
+    display: flex;
+    border: solid 1px #ddd;
+    color: inherit;
+    text-decoration: none;
+}
+
+.listB a:hover {
+    opacity: 0.8;
+}
+
+.listB .photo {
+    flex: 2;
+    /* 글자의 높이에 따라 이미지를 출력하기 위해 */
+    min-height: 0;
+    background-position: center;
+    background-size: cover;
+}
+
+.listB .text {
+    flex: 3;
+    margin: 10px;
+}
+
+.listB h2 {
+    font-size: 18px;
+}
+
+.listB p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+@media (max-width: 400px) {
+    .listB .photo {
+        flex: 1;
+    }
+    .listB p {
+        display: none;
+    }
+}
+
+.listC h1 {
+    text-align: center;
+
+}
+
+.listC .container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: none;
+    margin: 2px auto;
+}
+
+.listC article {
+    flex: 1 1 250px;
+    display: flex;
+}
+
+.listC a {
+    position: relative;
+    flex: 1;
+    margin: 2px;
+    display: flex;
+    border: solid 1px #ddd;
+    color: inherit;
+    text-decoration: none;
+    background-color: currentColor;
+}
+
+.listC a:hover {
+    opacity: 0.8;
+}
+
+.listC .photo {
+    flex: 2;
+    /* 글자의 높이에 따라 이미지를 출력하기 위해 */
+    min-height: 250px;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.6;
+}
+
+.listC .text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 10px;
+    color: #fff;
+}
+
+.listC h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.listC p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+@media (min-width: 1000px) {
+    .listC article {
+        /* 기본 너비를 25%로 지정한다
+        이렇게 하면 브라우저 화면의 너비가 1000픽셀 이상일 때 너비 250픽셀 설정을 덮어 쓰여집니다.
+        따라서 4단 구조로 출력합니다 */
+        flex: 1 1 25%;
+    }
+    .listC article:nth-child(4n+1) {
+        flex: 1 1 50%;            
+    }
+}
+
+.head-color {
+    background-color: #5D9AB2;
+    color: #fff;
+}
+
+.head-color .headA {
+    background-color: transparent;
+    color: inherit;
+}
+
+.head-color .headC {
+    color: inherit;
+}
+
+.head-hero {
+    background-color: transparent;
+    color: #fff;
+}
+
+.head-hero .headA {
+    background-color: transparent;
+}
+z
+.head-hero .headC {
+    color: inherit;
+    opacity: 1;
+}
+
+@media (max-width: 767px) {
+    .head-hero .headB {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+.head-fixed,
+.nohero .head-fixed {
+    position: fixed;
+}
+
+.nohero .head-fixed + * {
+    margin-top: 80px;
+}
+
+.related {
+    background-color: #5D9AB2;
+    padding: 30px 0;
+}
+.related ul {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0px auto;
+    padding: 0;
+    list-style: none;
+}
+
+.related li {
+    flex: 1 1 100%;
+    display: flex;
+}
+
+.related a {
+    flex: 1;
+    margin: 10px;
+    display: block;
+    border: solid 1px #ddd;
+    color: inherit;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.related a:hover {
+    opacity: 0.8;
+}
+
+.related .photo {
+    min-height: 100px;
+    background-position: center;
+    background-size: cover;
+}
+
+.related .text {
+    margin: 10px;
+}
+
+.related h2 {
+     font-size: 18px;
+}
+
+.related p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .related li {
+        flex: 1 1 50%;
+    }
+}
+
+@media (min-width: 900px) {
+    .related li {
+        flex: 1 1 25%;
+    }
+}
